@@ -11,6 +11,9 @@ env:
 jobs:
   main:
     runs-on: ubuntu-latest
+    env:
+      PORT: 3000
+      GLOBAL_PREFIX: api
     if: ${{ github.event_name != 'pull_request' }}
     steps:
       - uses: actions/checkout@v2
@@ -29,6 +32,9 @@ jobs:
       - run: npx nx-cloud stop-all-agents
   pr:
     runs-on: ubuntu-latest
+    env:
+      PORT: 3000
+      GLOBAL_PREFIX: api
     if: ${{ github.event_name == 'pull_request' }}
     steps:
       - uses: actions/checkout@v2
@@ -47,6 +53,9 @@ jobs:
       - run: npx nx-cloud stop-all-agents
   agents:
     runs-on: ubuntu-latest
+    env:
+      PORT: 3000
+      GLOBAL_PREFIX: api
     name: Agent 1
     timeout-minutes: 60
     strategy:

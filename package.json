@@ -11,11 +11,15 @@
   },
   "private": true,
   "dependencies": {
+    "@nestjs/apollo": "^10.0.9",
     "@nestjs/axios": "^0.0.7",
     "@nestjs/common": "^8.0.0",
     "@nestjs/core": "^8.0.0",
+    "@nestjs/graphql": "^10.0.10",
     "@nestjs/platform-express": "^8.0.0",
     "@nestjs/terminus": "^8.0.6",
+    "apollo-server-express": "^3.6.7",
+    "graphql": "^16.4.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.0.0",
     "tslib": "^2.3.0"

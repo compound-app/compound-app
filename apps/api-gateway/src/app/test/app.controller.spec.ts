@@ -2,15 +2,16 @@ import { HttpModule } from '@nestjs/axios';
 import { TerminusModule } from '@nestjs/terminus';
 import { Test, TestingModule } from '@nestjs/testing';
 
-import { AppController } from '../app.controller';
-import { AppService } from '../app.service';
+import { ConfigurationModule } from '../../configuration/configuration.module';
+import { AppController } from '../controllers/app.controller';
+import { AppService } from '../services/app.service';
 
 describe('AppController', () => {
   let app: TestingModule;
 
   beforeAll(async () => {
     app = await Test.createTestingModule({
-      imports: [TerminusModule, HttpModule],
+      imports: [ConfigurationModule, TerminusModule, HttpModule],
       controllers: [AppController],
       providers: [AppService],
     }).compile();

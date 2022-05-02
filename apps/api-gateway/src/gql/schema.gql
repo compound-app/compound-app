@@ -1,0 +1,11 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type HelloSchema {
+  message: String!
+}
+
+type Query {
+  hello: HelloSchema!
+}

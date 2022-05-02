@@ -3,24 +3,28 @@ import { TerminusModule } from '@nestjs/terminus';
 import { Test, TestingModule } from '@nestjs/testing';
 
 import { ConfigurationModule } from '../../configuration/configuration.module';
-import { AppController } from '../controllers/app.controller';
+import { AppResolver } from '../resolvers/app.resolver';
 import { AppService } from '../services/app.service';
 
-describe('AppController', () => {
-  let app: TestingModule;
+describe('AppResolver', () => {
+  let resolver: AppResolver;
 
-  beforeAll(async () => {
-    app = await Test.createTestingModule({
+  beforeEach(async () => {
+    const module: TestingModule = await Test.createTestingModule({
       imports: [ConfigurationModule, TerminusModule, HttpModule],
-      controllers: [AppController],
-      providers: [AppService],
+      providers: [AppService, AppResolver],
     }).compile();
+
+    resolver = module.get<AppResolver>(AppResolver);
+  });
+
+  it('should be defined', () => {
+    expect(resolver).toBeDefined();
   });
 
   describe('hello', () => {
     it('should return "Welcome to api-gateway!"', () => {
-      const appController = app.get<AppController>(AppController);
-      expect(appController.hello()).toEqual({
+      expect(resolver.hello()).toEqual({
         message: 'Welcome to api-gateway!',
       });
     });

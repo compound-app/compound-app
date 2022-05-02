@@ -1,5 +1,7 @@
+import { TerminusModule } from '@nestjs/terminus';
 import { Test } from '@nestjs/testing';
 
+import { ConfigurationModule } from '../../configuration/configuration.module';
 import { AppService } from '../services/app.service';
 
 describe('AppService', () => {
@@ -7,6 +9,7 @@ describe('AppService', () => {
 
   beforeAll(async () => {
     const app = await Test.createTestingModule({
+      imports: [ConfigurationModule, TerminusModule],
       providers: [AppService],
     }).compile();
 
@@ -15,7 +18,7 @@ describe('AppService', () => {
 
   describe('getData', () => {
     it('should return "Welcome to api-gateway!"', () => {
-      expect(service.getData()).toEqual({ message: 'Welcome to api-gateway!' });
+      expect(service.hello()).toEqual({ message: 'Welcome to api-gateway!' });
     });
   });
 });

@@ -1,20 +1,19 @@
 {
-  "root": "libs/core",
-  "sourceRoot": "libs/core/",
-  "projectType": "library",
+  "root": "libs/core/mongo",
+  "sourceRoot": "libs/core/mongo/src",
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/core/**/*.ts"]
+        "lintFilePatterns": ["libs/core/mongo/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/core"],
+      "outputs": ["coverage/libs/core/mongo"],
       "options": {
-        "jestConfig": "libs/core/jest.config.ts",
+        "jestConfig": "libs/core/mongo/jest.config.ts",
         "passWithNoTests": true
       }
     }

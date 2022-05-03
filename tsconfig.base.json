@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@compound/core": ["libs/core/src/index.ts"],
+      "@compound/core": ["libs/core/"],
+      "@compound/core/mongo": ["libs/core/mongo/src/index.ts"],
       "@compound/core/setup": ["libs/core/setup/src/index.ts"]
     }
   },
